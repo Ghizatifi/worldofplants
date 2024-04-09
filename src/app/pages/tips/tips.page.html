@@ -1,0 +1,43 @@
+
+<ion-content text-center padding>
+
+  
+  <ion-fab  *ngIf="fullPage" vertical="top" horizontal="end" slot="fixed">
+    <!-- <ion-icon name="chatbubbles"></ion-icon> -->
+    <ion-icon name="close-circle" size='large' color='danger' (click)="close()" ></ion-icon>
+</ion-fab>
+
+
+  <h2 *ngIf="fullPage" style="padding-bottom: 100px;color: black; font-weight: bold;">
+    {{"notPlant" | translate}}
+  </h2>
+  <h4>
+    {{"tips.tips_photos" | translate}}
+  </h4>
+  <ion-grid fixed>
+    <div style="display: flex; flex-direction: column;justify-content: center;align-items: center;">
+      <div class="tip1">
+      </div>
+      <p style="font-weight: bold; margin: 0;">
+        {{tips[0].name | translate}}
+      </p>
+    </div>
+    <ion-row>
+      <ion-col size="6" *ngFor="let tip of tips.slice(1,5) ; index as i" class='flex-dis'>
+        <ion-card>
+          <ion-img  class='small_image' [src]="tip.image" alt="">
+          </ion-img>
+         
+          <ion-card-content style="padding: 2px;">
+            {{tip.name | translate}}
+          </ion-card-content>
+        </ion-card>
+       
+      </ion-col>
+      <ion-col size="6">
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button  (click)="close()" style="display: block;margin: auto;" class="next-btn"> {{"i_understand" | translate}}</ion-button>
+</ion-content>

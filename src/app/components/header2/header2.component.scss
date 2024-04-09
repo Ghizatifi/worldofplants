@@ -1,0 +1,30 @@
+.card{
+    background: #FFFFF3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tail {
+    padding: 20px;
+}
+.tail ion-icon{
+    padding: 5px;
+    font-size: 20px;
+}
+.title{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    font-variant: jis04;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-buttons{
+    padding: 20px;
+}
+ion-buttons ion-icon {
+    font-size: 25px;
+}

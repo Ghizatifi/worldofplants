@@ -1,0 +1,20 @@
+<ion-content>
+  <div style="padding: 10px 10px 30px 10px;">
+  <div>
+    <ion-icon (click)="close()" class="close_btn" name="close"></ion-icon>
+  </div>
+  <h5 style="font-weight: bold;text-align: center;">
+    {{"instructions.instructions_about_requesting_consult" | translate}}
+  </h5>
+  <div class="card" *ngFor="let ins of instructions;index as i">
+      <div>
+        <img style="padding: 10px;    min-width: 65px;" [src]=ins.image alt="">
+      </div>
+     <div>
+      <div >
+        <h5 style="font: 'bold'; font-size: 16px !important">{{ins.body | translate}}</h5>
+      </div>
+     </div>
+  </div>
+</div>
+</ion-content>

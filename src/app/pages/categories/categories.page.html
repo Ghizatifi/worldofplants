@@ -1,0 +1,31 @@
+<app-header2 [pageName]="'categories'"></app-header2>
+
+<ion-content padding>
+
+  <div *ngIf="categories.length>0"> 
+    <ion-card class="category_card" (click)="showCategoryProducts(categories[0])">
+      <img class="image" [src]="fetch.url_storage+categories[0].image" alt="">
+      <ion-card-header>
+        <ion-card-title>
+          {{config.translate.currentLang!='en'?categories[0].name:categories[0].name_en}}
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+ </div> 
+
+  <ion-grid *ngIf="categories.length>1">
+    <ion-row>
+      <ion-col style="margin: 0; padding: 0;" size="6" *ngFor="let cat of categories.slice(1,categories.length)">
+
+        <ion-card class="category_card" (click)="showCategoryProducts(cat)">
+          <img class="image" [src]="fetch.url_storage+cat.image" alt="">
+          <ion-card-header>
+            <ion-card-title>
+              {{config.translate.currentLang!='en'?cat.name:cat.name_en}}
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

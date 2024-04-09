@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>privacy-policy</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div padding [innerHTML]="terms">
+
+  </div>
+  <ion-button (click)="close()" expand="block" fill="clear" shape="round">
+    close
+  </ion-button>
+</ion-content>

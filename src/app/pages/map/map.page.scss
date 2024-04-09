@@ -1,0 +1,53 @@
+ion-fab {
+    ion-fab-button {
+        --background: transparent;
+        --box-shadow: none;
+        ion-icon {
+            font-size: 40px;
+        }
+    }
+}
+
+.gps-fab {
+    ion-fab-button {
+        --background: gray;
+        --border-radius: 0;
+        ion-icon {
+            font-size: 30px;
+        }
+    }
+}
+
+.no-gps {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    p {
+        width: 80%;
+        text-align: center;
+    }
+    img {
+        width: 50%;
+    }
+}
+
+ion-fab {
+    visibility: visible;
+}
+
+ion-chip {
+    //--background: #00213f;
+   // --color: #ff0000;
+    ion-icon{
+        --color:#ff0000;;
+        color:red; 
+    }
+  }

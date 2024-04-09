@@ -1,0 +1,156 @@
+<app-header2></app-header2>
+
+<ion-content>
+
+  <div style="padding: 20px;">
+    <div class="borderer" style="display: flex;">
+      <ion-img class="box_image" src="assets/images/map.png"></ion-img>
+      <div *ngIf="config.user.area_id==null || config.user.area==null" style="display: flex; flex-direction: column; justify-content: space-between;margin: 0 20px;">
+        <p style="font-size: 18px;">
+          
+          {{"select_address" | translate}}
+
+        </p>
+        <p style="font-size: 18px;" (click)="addAddress()" style="color: green; text-decoration: underline;">
+          {{"add_address" | translate}}
+        </p>
+      </div>
+
+      <div *ngIf="config.user.area_id!=null || config.user.area!=null" style="display: flex; flex-direction: column; justify-content: space-between;margin: 0 20px;">
+        <p style="font-size: 18px;margin: 0;">
+          {{config.user.area.city.name}}
+        </p>
+        <p style="font-size: 18px;margin: 0;">
+          {{config.user.area.name}}
+        </p>
+        <p *ngIf="config.user.address" style="font-size: 18px;margin: 0;">
+          {{config.user.address}}
+        </p>
+        <p style="font-size: 18px;margin: 0;" (click)="addAddress()" style="color: green; text-decoration: underline;">
+          {{"edit" | translate}}
+        </p>
+      </div>
+    </div>
+    <p style="font-size: 18px;font-weight: bold;">  {{"payment_ways" | translate}}</p>
+    <ion-list>
+      <div class="bordered" style="display: flex; justify-content: space-between; align-items: center;padding: 0 20px;">
+        <ion-icon style="width: 60px; height: 50px;" [src]="assets.visa"></ion-icon>
+        <ion-label style="color: grey;"> VISA </ion-label>
+        <ion-checkbox disabled="true" mode="ios"  slot="start"></ion-checkbox>
+      </div>
+
+      <ion-note >
+        <ion-icon name="ios-alert" color="warning"></ion-icon>
+        {{"no_available_now" | translate}}
+      </ion-note>
+
+
+      <div class="bordered" style="display: flex; justify-content: space-between; align-items: center;padding: 0 20px;">
+        <ion-icon style="margin: 5px; font-size: 35px;" [src]="assets.cash"></ion-icon>
+        <ion-label> {{"pay_cash" | translate}} </ion-label>
+        <ion-checkbox  mode="ios" [(ngModel)]="paymentSelected" slot="start"></ion-checkbox>
+      </div>
+    </ion-list>
+  <div lines='none' class="coupon-item">
+    <!-- <ion-label *ngIf="!coupon">كوبون:</ion-label> -->
+    <ion-input style="margin: 0 20px;" [(ngModel)]="couponText" type='text' placeholder="ادخل رمز الكوبون" *ngIf="!coupon"></ion-input>
+    <ion-button fill="solid" style="--border-radius: 50px; width: 106px; height: 40px; margin: 6px;" color="primary" [disabled]="!couponText || usingCoupon" (click)="testCoupon()">
+      {{usingCoupon ? "" : "apply" | translate}}
+      <ion-spinner *ngIf="usingCoupon"></ion-spinner>
+    </ion-button>
+    <ion-buttons slot="end" *ngIf="coupon" class="coupon">
+      <ion-button>
+        {{coupon.code}}
+        {{
+          coupon.discount ?
+          "discount"
+          :
+          ""
+          | translate}}
+        {{
+          coupon.value ?
+          coupon.value
+          :
+          coupon.discount
+        }}
+
+        {{
+          coupon.value ?
+          "JD"
+          :
+          ""
+        }}
+      </ion-button>
+      <ion-button buttonType="icon-only" (click)="deleteCoupon()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+
+  
+  <div class="bottom_container">
+    <div class="inline">
+      <p>
+       {{"total" | translate}}
+      </p>
+      <div class="dots">
+      </div>
+      <p>
+        {{total()+' JD '}}
+      </p>
+    </div>
+    <div class="inline">
+      <p>
+        {{"shipping_cost" | translate}}
+      </p>
+      <div class="dots">
+      </div>
+      <p>
+        {{
+          d_price || d_price == 0 ?
+          d_price + " JD"
+          :
+          ""
+        }}
+      </p>
+      <ion-spinner [hidden]="d_price || d_price == 0"></ion-spinner>
+      </div>
+  
+      <div class="inline">
+        <p>
+          {{"discount" | translate}}
+        </p>
+        <div class="dots">
+        </div>
+        <p>
+          {{discount()}} JD
+        </p>
+        </div>
+  </div>
+  
+
+</div>
+  <div class="inline" style="color: green ; font-weight: bold;padding: 0 20px;background: #108b003f;">
+    <p>
+      {{"total_all" | translate}}
+    </p>
+    <p>
+      {{all()+' JD '}}
+    </p>
+  </div>
+  
+</ion-content>
+<ion-footer style="display: flex;justify-content: center;">
+  
+  <ion-button class="next-btn" color="primary"
+  [disabled]="loading || (!paymentSelected) " (click)="placeOrder()">
+    {{
+      loading ? 
+      ""
+      :
+      "total_all" 
+      | translate
+    }}
+    <ion-spinner *ngIf="loading"></ion-spinner>
+  </ion-button>
+</ion-footer>

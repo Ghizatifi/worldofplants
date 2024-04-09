@@ -1,0 +1,134 @@
+
+<app-header2 pageName="profile"></app-header2>
+<ion-content padding>
+
+  <div class="wrapper" *ngIf="config.user">
+    <ion-thumbnail>
+      <ion-avatar item-start>
+        <img [src]="imageEdited ? imgPreview : fetch.url_storage +config.user.avatar"/>  
+
+        <ion-icon name="ios-create" class="edit-img-icon" (click)="editImage()"></ion-icon>
+    </ion-avatar>
+     
+    </ion-thumbnail>
+
+    <!-- <form> -->
+      <ion-list>
+        <p class="bold">
+        {{"username" | translate}}
+         </p>
+        <div class="bordered light_tan">
+          <ion-input type="text" [(ngModel)]="config.user.name"></ion-input>
+        </div>
+
+        <p class="bold">
+          {{"phone" | translate}}
+           </p>
+          <div class="bordered light_tan">
+            <ion-input placeholder="+9627XXXXXXX"  type='tel'  [(ngModel)]="config.user.phone"></ion-input>
+          </div>
+
+          <p class="bold">
+            {{"email" | translate}}
+          </p>
+            <div class="bordered light_tan">
+              <ion-input placeholder="email"  type='email'  [(ngModel)]="config.user.email"></ion-input>
+            </div>
+  
+        <div *ngIf="config.user.role_id==3">
+          <p class="bold">
+            {{"farm_size" | translate}}
+             </p>
+            <div class="bordered light_tan">
+              <ion-select  [(ngModel)]="farm_size" interface="popover"   placeholder="{{'farm_size' | translate}}" >
+                <ion-select-option *ngFor="let opt of userService.all_sizes" value="{{opt.id}}">{{opt.name_ar}}</ion-select-option>
+              </ion-select>
+             </div>
+        </div>
+
+
+        <p class="bold">
+          {{"city" | translate}}
+         </p>
+          <div class="bordered light_tan">
+            <ion-select [placeholder]="config.user.area? config.user.area.city.name:''" interface="action-sheet"  (ionChange)="changeCity()" cancelText="تراجع "
+            [(ngModel)]="city">
+              <ion-select-option *ngFor="let c of citys" value="{{c.id}}">{{c.name}}</ion-select-option>
+            </ion-select>
+          </div>
+          
+          <p class="bold">
+           {{"area" | translate}}
+           </p>
+          <div  class="bordered light_tan">
+            <ion-select [placeholder]="config.user.area?config.user.area.name:''" interface="action-sheet" cancelText="تراجع "
+            [disabled]="!city" [(ngModel)]="city_area">
+              <ion-select-option *ngFor="let a of city_areas" value="{{a.id}}"  >{{a.name}}</ion-select-option>
+            </ion-select> 
+          </div>
+      
+          <p class="bold">
+            {{"street" | translate}}
+           </p>
+      
+          <div  class="bordered light_tan">
+            <!-- <ion-icon slot="start" name="md-pin"></ion-icon> -->
+            <ion-input type="text"  [(ngModel)]="street"></ion-input>
+          </div>
+      
+          
+          <p class="bold">
+           {{"plants"  | translate}}
+           </p>
+
+          <ion-grid>
+            <ion-row style="direction: ltr;">
+              <ion-col style="display: flex;align-items: center;" size="2"  >
+                <ion-avatar (click)="addPlant()" style="position: absolute;width: 45px; height: 45px; margin: 5px;background: var(--ion-color-secondary);">
+                  <ion-icon class="cross_icon" name="add"></ion-icon>
+                 </ion-avatar>
+                 </ion-col>
+                 <ion-col size="10">
+                  <ion-slides [options]="slideOpts" style="padding: 5px;"  >
+                    <ion-slide  class="unset_slide" *ngFor="let plant of plants;index as i">
+                      <div>
+                       <ion-avatar (click)="removePlant(i)" style="width: 45px; height: 45px; margin: 5px;">
+                        <ion-img class="rounded" [src]="plant.image?  fetch.url_storage + plant.image : 'assets/images/no-image.png'"></ion-img>
+                        <ion-icon class="cross_icon" name="close"></ion-icon>
+                       </ion-avatar>
+                        </div>
+                    </ion-slide>
+                  </ion-slides>
+                 </ion-col>
+            </ion-row>
+          </ion-grid>
+
+
+      </ion-list>
+
+      
+      <ion-button  class='next-btn center-block'   *ngIf="config.is_jordan" expand="block" (click)="selectLocation()">
+        <ion-icon name="pin" slot='start'></ion-icon>{{
+          config.user.lat && config.user.lng 
+          ?
+          utils.translator("change_location")
+          :
+          utils.translator("pick_location")
+        }}
+        </ion-button>
+
+      <ion-button class='next-btn center-block' (click)="edit()"  style="margin-top: 10px;"
+      [disabled]="!config.user.name || !emailIsGood() || !config.user.phone || editing || deletingAccount">
+      {{editing ? "" : utils.translator("save")}}
+      <ion-spinner *ngIf="editing"></ion-spinner>
+    </ion-button>
+
+
+    <ion-button class='next-btn center-block' (click)="deleteAccount()" style="margin-top: 10px; --background: red;"
+    [disabled]="editing">
+    {{deletingAccount ? "" : "delete_account" | translate}}
+    <ion-spinner *ngIf="deletingAccount"></ion-spinner>
+  </ion-button>
+    <!-- </form> -->
+  </div>
+</ion-content>

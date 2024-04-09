@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="27" height="45" viewBox="0 0 27 45">
+  <g id="Group_82153" data-name="Group 82153" transform="translate(-111 -345)">
+    <g id="_7442810861529659196" data-name="7442810861529659196" transform="translate(112 346)">
+      <line id="Line_385" data-name="Line 385" x1="25" transform="translate(0 36)" fill="none" stroke="#118b00" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <rect id="Rectangle_35211" data-name="Rectangle 35211" width="25" height="43" rx="2" fill="none" stroke="#118b00" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <g id="Group_82152" data-name="Group 82152" transform="translate(116.785 353.576)">
+      <line id="Line_386" data-name="Line 386" x2="15.308" fill="none" stroke="#118b00" stroke-linecap="round" stroke-width="1"/>
+      <line id="Line_388" data-name="Line 388" x2="15.308" transform="translate(0 7.975)" fill="none" stroke="#118b00" stroke-linecap="round" stroke-width="1"/>
+      <line id="Line_387" data-name="Line 387" x2="13.713" transform="translate(0 3.987)" fill="none" stroke="#118b00" stroke-linecap="round" stroke-width="1"/>
+      <line id="Line_389" data-name="Line 389" x2="13.713" transform="translate(0 11.962)" fill="none" stroke="#118b00" stroke-linecap="round" stroke-width="1"/>
+    </g>
+    <path id="Icon_color" data-name="Icon color" d="M3.725.346,1.381,2.689a.111.111,0,0,1-.157,0L.033,1.5a.111.111,0,0,1,0-.157l.155-.155a.111.111,0,0,1,.157,0l.957.957L3.413.032a.113.113,0,0,1,.157,0l.155.157a.111.111,0,0,1,0,.157Z" transform="translate(122.136 383.974)" fill="#ffa400" stroke="#ffa400" stroke-miterlimit="10" stroke-width="1"/>
+  </g>
+</svg>

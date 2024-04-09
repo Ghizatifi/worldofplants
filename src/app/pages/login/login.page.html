@@ -1,0 +1,224 @@
+<ion-content dir="ltr">
+  <img style="width: 100%;" src="assets/images/Login.png"/>
+
+  <div class="wrapper" *ngIf="screen == '' && loginRoleId">
+    <div class="buttons">
+      <img src="assets/images/logo.png"/>
+      <ion-button (click)="screen = 'register' ;loginRoleId = 2">
+        {{"register_user"  | translate}}
+      </ion-button>
+      <ion-button   (click)="screen = 'login'">
+        {{"login"  | translate}}
+      </ion-button>
+      
+    </div>
+  </div>
+
+  <div class="login" *ngIf="screen == 'login'">
+    <h4 style="color: #002F06;font-weight: bolder;">
+      أهلا و سهلا بك
+    </h4>
+    <p>
+      قم بتسجيل دخول لبدء رحلتك معنا
+    </p>
+    <form [formGroup]="loginForm">
+      <ion-item lines="inset">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4" style="display: flex;align-items: center" (click)="changeCountry()">
+                  <img [src]="CountryFlag"  class=" no-left " style="margin: 0;" no-padding no-margin>
+                  <h1 style="font-size: 16px;margin: 0;font-weight:500;">{{CountryCode}}</h1>
+             </ion-col>
+            <ion-col size="8">
+              <ion-input formControlName="phone" placeholder="79XXXXXXXX"  type='tel' dir="ltr">
+              </ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+  
+      <ion-item lines="inset">
+          <ion-icon class="show-option" [hidden]="showPassword" name="eye-off" (click)="toggleShow()"></ion-icon>
+          <ion-icon class="hide-option" [hidden]="!showPassword" name="eye"  (click)="toggleShow()"></ion-icon>
+       
+        <ion-input formControlName="password" style="--padding-start: 40px;" dir="auto" 
+        [type]="showPassword?'text':'password'" placeholder=" كلمة المرور">
+        </ion-input>
+      </ion-item>
+
+      <div style="padding-top: 10px;">
+
+      </div>
+      <ion-button rounded class="submit-btn" [disabled]="!loginForm.valid || disableSubmit" (click)="login()"  >
+        {{"login"  | translate}}
+      </ion-button>
+
+      <p class="aot-login" >
+        ليس لديك حساب؟ <a (click)="screen = 'register'">إنشاء حساب</a>
+      </p>
+
+      <!-- <ion-button (click)="goToForgetPage()" style="--color: var(--ion-color-danger);--box-shadow: none;--background: transparent;text-decoration: underline;font-size: 12px;margin-top: 20px;">
+        نسيت كلمة السر؟
+      </ion-button> -->
+    </form>
+  </div>
+
+  
+ 
+
+  <div class="register" *ngIf="screen == 'register'">
+      <form [formGroup]="regForm">
+
+        <ion-item lines="inset">
+          <ion-icon name="md-person" slot="start"></ion-icon>
+          <ion-input formControlName="username"  type='text' placeholder=" الإسم">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon  slot="start" name="ios-contacts"></ion-icon>
+          <ion-label> {{"user_type" | translate}}</ion-label>
+          <ion-select value="2"   interface="popover" placeholder="{{'user_type' | translate}}" (ionChange)="change($event)" >
+            
+            <ion-select-option  value="2">{{"user" | translate}}</ion-select-option>
+            <ion-select-option  value="3">{{"farmer" | translate}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div *ngIf="loginRoleId==3">
+          <!-- <ion-item>
+            <ion-label>{{'planted_plants' | translate}} </ion-label>
+            <ion-select formControlName="plants"  multiple="true" placeholder="{{'planted_plants' | translate}}"  >
+              
+              <ion-select-option *ngFor="let opt of userService.all_plants" value="{{opt.id}}">{{opt.name_ar}}</ion-select-option>
+            </ion-select>
+          </ion-item> -->
+
+          <ion-item>
+            <ion-icon name="ios-expand" slot="start"></ion-icon>
+            <ion-label>{{'farm_size' | translate}}</ion-label>
+            <ion-select  formControlName="size" interface="popover"   placeholder="{{'farm_size' | translate}}" >
+              <ion-select-option *ngFor="let opt of userService.all_sizes" value="{{opt.id}}">{{opt.name_ar}}</ion-select-option>
+            </ion-select>
+          </ion-item> 
+        </div>
+<!-- 
+        <div *ngIf="loginRoleId==2">
+          <ion-item>
+            <ion-label>{{'fev_plants' | translate}}</ion-label>
+            <ion-select formControlName="plants" multiple="true" placeholder="{{'fev_plants' | translate}}" >
+              <ion-select-option *ngFor="let opt of userService.all_plants" value="{{opt.id}}">{{opt.name_ar}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+         -->
+        <ion-item lines="inset">
+          <ion-grid>
+            <ion-row dir="rtl">
+              <!-- <ion-col size="2" style="display: flex;align-items: center;">
+                <ion-icon name="call"></ion-icon>
+              </ion-col> -->
+              <ion-col size="8">
+                <ion-input formControlName="phone" placeholder="7XXXXXXX"  type='tel'>
+                </ion-input>
+              </ion-col>
+              <!-- <ion-col size="2">
+                <p>+123</p>
+              </ion-col> -->
+              <ion-col size="4" style="display: flex;align-items: center" (click)="changeCountry()">
+                <!-- <img [src]="CountryFlag"  class="img" no-padding no-margin> -->
+                <h1 style="font-size: 16px;margin: 0;font-weight:900;padding-bottom: 10px;">{{CountryCode}}</h1>
+               
+                    <img [src]="CountryFlag"  class=" no-left " no-padding no-margin>
+                
+               
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <!-- <ion-icon name="call" slot="start"></ion-icon> -->
+        </ion-item>
+    <!-- 
+        <ion-item>
+          <ion-icon name="home" slot="start"></ion-icon>
+          <ion-select formControlName="home_type"  multiple="false" placeholder="{{'نوع السكن' | translate}}"  >
+            
+            <ion-select-option *ngFor="let opt of homeTypes" value="{{opt.id}}">{{opt.name_ar}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item lines="inset">
+          <ion-icon name="call" slot="start"></ion-icon>
+          <ion-input formControlName="phone2"  type='tel' placeholder=" رقم هاتف اخر">
+          </ion-input>
+        </ion-item>
+
+        <ion-item lines="inset">
+          <ion-icon name="pin" slot="start"></ion-icon>
+          <ion-input formControlName="address2"  type='text' placeholder="وصف دقيق للسكن">
+          </ion-input>
+        </ion-item>
+ -->
+        <ion-item lines="inset">
+          <!-- <ion-icon name="md-lock" slot="start"></ion-icon>
+           -->
+           <ion-icon class="show-option" [hidden]="showPasswordReg" name="eye-off" (click)="toggleShowReg()"></ion-icon>
+           <ion-icon class="hide-option" [hidden]="!showPasswordReg" name="eye"  (click)="toggleShowReg()"></ion-icon>
+        
+          <ion-input formControlName="password" style="--padding-start: 40px;border-width: 1px; border-radius: 10px;"   dir="auto" 
+         [type]="showPasswordReg?'text':'password'"  placeholder=" كلمة المرور">
+          </ion-input>
+        </ion-item>
+        
+        <ion-item lines="inset">
+          <!-- <ion-icon name="md-lock" slot="start"></ion-icon> -->
+          <ion-icon class="show-option" [hidden]="showPasswordRegConf" name="eye-off" (click)="toggleShowConf()"></ion-icon>
+          <ion-icon class="hide-option" [hidden]="!showPasswordRegConf" name="eye"  (click)="toggleShowConf()"></ion-icon>
+       
+          <ion-input formControlName="confirmPassword" style="--padding-start: 40px;" dir="auto" 
+         [type]="showPasswordRegConf?'text':'password'"  placeholder=" تأكيد كلمة المرور">
+          </ion-input>
+        </ion-item>
+        <ion-item >
+          <ion-label>{{"acceptTerms" | translate}}</ion-label>
+          <ion-checkbox slot="end" formControlName="acceptTerms" ></ion-checkbox>
+        </ion-item>
+        <p class="aot-login" >
+          <a (click)="terms()">{{"terms" | translate}}</a>
+        </p>
+        <ion-button class="submit-btn" [disabled]="!regForm.controls.acceptTerms.value" (click)="signup()">
+          تسجيل حساب
+        </ion-button>
+  
+        <p class="aot-login" >
+          لديك حساب؟ <a (click)="screen = 'login'">تسجيل الدخول</a>
+        </p>
+        
+      </form>
+  </div>
+
+  <div class="register" *ngIf="screen == 'forget'">
+    <ion-fab horizontal="start" vertical="top">
+      <ion-fab-button style="--color: var(--ion-color-danger);--box-shadow: none;--background: transparent;" (click)="screen = '';forgetEmail='';">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <form>
+      <ion-item lines="inset">
+        <ion-icon name="md-mail" slot="start"></ion-icon>
+        <ion-input [(ngModel)]="forgetEmail" [ngModelOptions]="{standalone: true}" type='text' placeholder=" الإيميل">
+        </ion-input>
+      </ion-item>
+      <ion-button class="submit-btn" [disabled]="!isEmail(forgetEmail) || loading" (click)="forget()">
+        {{
+          loading
+          ?
+          ""
+          :
+          "إرسال كلمة السر"
+        }}
+        <ion-spinner *ngIf="loading"></ion-spinner>
+      </ion-button>
+    </form>
+  </div>
+
+  <img [src]="imgSrc" style="opacity: none;position: absolute;left:-50%;" *ngIf="imgSrc"/>
+</ion-content>

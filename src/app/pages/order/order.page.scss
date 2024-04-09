@@ -1,0 +1,48 @@
+*{
+    z-index: 1;
+}
+.green_filter{
+        // filter :invert(33%) sepia(73%) saturate(765%) hue-rotate(63deg) brightness(95%) contrast(92%);
+    filter:invert(25%) sepia(40%) saturate(2065%) hue-rotate(70deg) brightness(54%) contrast(95%);
+      
+}
+.status{
+    padding: 10px;
+    display: flex;
+    margin-top: 20px;
+    font-size: 20px;
+    align-items: center;
+    color: green;
+    font-weight: bold;
+    .dotted{
+        width: 100%;
+        margin: 0 10px;
+        border-bottom: 1px green dotted;
+    }
+}
+.status_p{
+    margin: 0 10px;
+    font-size: 20px;
+}
+.status_container{
+    position: relative;
+}
+.status_content{
+    display: flex;
+    margin-bottom: 20px;
+}
+.line{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+    right: 12px;
+    border-right: 2px var(--ion-color-secondary) dotted;
+}
+.grey{
+    color: grey;
+}
+.black{
+    color: black;
+}

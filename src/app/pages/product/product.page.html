@@ -1,0 +1,141 @@
+
+<ion-content *ngIf="loaded">
+<div class="head">
+  <div class="bar" >
+    <ion-icon [src]="assets.backward_ios"   class="backButtonPop" (click)="close()" ></ion-icon>
+  <div    class="heart"  (click)="config.switchFav(item)" [class.is_fev]="config.getItemFromFavourite(item.id)"></div>
+  </div>
+
+  <ion-slides  [options]="slideOptsOne" style="z-index: 0;" slidesPerView="auto" freeMode="true" >
+
+    <ion-slide  style="width: 100% !important; --width: 100% !important; " *ngFor="let img of  item.images">
+      <img-loader (click)="utils.viewImage(item.images)" style="max-height: 300px;" useImg class="image_bar" [src]="fetch.url_storage+ img"></img-loader>
+
+    </ion-slide>
+  </ion-slides>
+
+  
+</div>
+
+
+<div class="container">
+<ion-grid>
+  <ion-row class="main-row">
+    <ion-col size="8" class="grid-col">
+      <ion-grid style="width: 100%;">
+          <p text-right style="font-size: 20; font-weight: bold;">
+            {{config.translate.currentLang!='en'?item.name:item.name_en}}
+          </p>
+      </ion-grid>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <div style="display: flex; color: grey">
+      <ionic4-star-rating #rating
+        activeIcon = "ios-star"
+        defaultIcon = "ios-star-outline"
+        activeColor = "var(--ion-color-secondary)" 
+        defaultColor = "#f4f4f4"
+        readonly="true"
+        rating="5"
+        fontSize = "24px"
+        (ratingChanged)="logRatingChange($event)">
+    </ionic4-star-rating>
+    (no ratings)
+  </div>
+  </ion-row>
+  <!-- <ion-row *ngIf="item.sizes" style="display: flex;justify-items: center; align-items: center; text-align: center;" text-right>
+    <div>
+      الحجم
+    </div>
+    <div class="size_selected">
+      كبير
+    </div>
+    <div class="size">
+      وسط
+    </div>
+    <div>
+    {{item.price?item.price:item.profit}} JD
+    </div>
+</ion-row> -->
+<ion-row  class="item-price" text-right>
+  {{item.price?item.price:item.profit}} JD {{ "\t"}}
+  <span *ngIf="item.myunit" style="margin: 0 10px;">
+   {{'foreach' | translate}}  {{config.translate.currentLang!='en'?item.myunit.name:item.myunit.name_en}}
+  </span>
+  <!-- {{item.unit}} -->
+</ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <div class="innerHtml">
+  
+        <div  [innerHTML]="htmlProperty()"></div>
+        <!-- <div  [innerHTML]="item.description | safePipe"></div> -->
+      </div>
+    </ion-col>
+  </ion-row >
+
+  <ion-row padding *ngFor="let ex of extras" >
+    <ion-col size="3" style="display: flex; align-items: center;">
+    <ion-avatar> 
+      <ion-img [src]="ex.icon"></ion-img>
+    </ion-avatar>
+  </ion-col>
+  <ion-col  size="8" style="margin: 0;">
+      <p style="font-weight: bold;margin: 0;">
+        {{ex.title}}
+      </p>
+      <p  style=" margin: 0;">
+       {{ex.body}}
+      </p>
+  </ion-col>
+  </ion-row>
+</ion-grid>
+</div>
+
+
+<ion-slides [options]="slideOptsOne" style="padding: 5px;min-height: 164px !important;"  freeMode="true" >
+  <ion-slide  *ngFor="let product of item.related;"    class="unset_slide"  (click)="products_go(cat)">
+   <app-product-card [product]="product"></app-product-card>
+  </ion-slide>
+</ion-slides>
+
+</ion-content>
+<ion-footer  *ngIf="loaded">
+  <ion-grid fixed>
+    <ion-row style="display: flex; justify-content: space-between; align-items: center;">
+      <div >
+        <ion-button  (click)="config.add_to_Cart(item,item.count)" style="font-size: 18px;height: 50px;--border-radius: 50px" >
+          {{"add_to_cart" | translate}}
+        </ion-button>
+      </div>
+
+      <div>
+         
+        <ion-grid class="counter">
+          <ion-row no-margin  no-padding>
+            <ion-col size="4" >
+              <div class="counter_button delete" (click)="count_minus(item)" >
+                <ion-icon name="remove"></ion-icon>
+              </div>
+            </ion-col>
+
+            <ion-col size="4" style="text-align: center;"> {{item.count}}
+            </ion-col>
+
+            <ion-col size="4" (click)="count_plus(item)">
+              <div  class="counter_button add"  >
+                <ion-icon name="add"></ion-icon>
+              </div>
+            </ion-col>
+           
+          </ion-row>
+        
+        </ion-grid> 
+      </div>
+     
+    </ion-row>
+  </ion-grid>
+</ion-footer>
+
+

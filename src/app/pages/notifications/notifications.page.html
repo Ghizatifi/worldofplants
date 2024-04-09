@@ -1,0 +1,28 @@
+<app-header2 hide_tail="true" pageName="notifications"></app-header2>
+<ion-content padding>
+    <p *ngIf="notificationsService.notifications.length==0">
+      {{"no_notifications" | translate}}
+    </p>
+  <ion-list>
+    <div class="bordered" style="margin-top: 10px;" *ngFor="let noti of notificationsService.notifications" (click)="open(noti)">
+          <ion-row padding>
+            
+            <ion-col size="2">
+              <ion-icon class="icon" mode="ios" color="secondary" name="notifications-outline"></ion-icon>
+            </ion-col>
+            <ion-col size="10">
+              <p class="no-margin" style="font-weight: bold;">
+                {{noti.title}}
+              </p>
+              <p class="no-margin">
+                {{noti.msg}}
+              </p>
+            </ion-col>
+
+          </ion-row>
+          <ion-row *ngIf="noti.image!=0 && noti.image" >
+            <img   [src]="fetch.url_storage+noti.image" />
+          </ion-row>
+    </div>
+  </ion-list>
+</ion-content>

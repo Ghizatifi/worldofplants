@@ -1,0 +1,29 @@
+ion-item {
+    margin-top: 2%;
+}
+.status {
+    width: 25%;
+    height: 100%;
+    margin-left: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 35px;
+}
+
+ion-segment{
+    // border: 2px #e3e3e3 solid;
+    // border-radius: 5px;
+}
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.order_container{
+    margin-top: 15px;
+    padding: 10px;
+    border: 0.5px #d1d1d15e solid;
+    border-radius: 5px;
+}

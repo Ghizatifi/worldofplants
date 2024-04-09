@@ -1,0 +1,114 @@
+.wrapper, .login, .register {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.wrapper {
+    /* 
+    ion-button {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        --background: white;
+        --color: #48a240;
+    }
+
+
+    ion-button:nth-of-type(4) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        --background: #48a240;;
+        --color: white;
+    } */
+}
+img {
+    width: 50%;
+}
+.buttons  {
+    //flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.social-login {
+    text-align: center;
+    div { text-align: center }
+    ion-icon {
+        font-size: 50px;
+        margin: 15px;
+    }
+}
+
+form {
+    text-align: center;
+    ion-item {
+        --padding-end: 15px;
+    }
+}
+
+img {
+    margin-bottom: 15px;
+}
+
+.role-id {/* 
+    ion-button {
+        width: 50%;
+        --border-radius: 0;
+        border: 2px solid #48a240;
+        --box-shadow: none;
+        height: 50px;
+    }
+    ion-button:nth-of-type(1) {
+        --background: #48a240;
+        --color: white;
+        transform: scale(1.1);
+    }
+    ion-button:nth-of-type(2) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        --background: white;
+        --color: #48a240;
+    } */
+}
+
+.placeholder-ltr {
+    direction: rtl;
+}
+.placeholder-ltr.has-focus {
+    direction: ltr;
+}
+
+.box{
+    // --background: $item-back-color;
+    // background-color: $item-back-color;
+    height: 90%;
+    border-radius: 10px;
+    padding: 0px;
+    left: 0px;
+    padding-left: 0px;
+  }
+
+.img{
+    // width: 40%;
+}
+
+
+.no-left{
+    left: 0px;
+    padding-left: 0px !important;
+    margin-left: 0px !important;
+    left: 0px;
+}
+
+.flag{
+    // background-color: gray;
+    padding: 0px;
+    margin: 0px;
+    left: 0px;
+  
+  
+  }

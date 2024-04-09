@@ -1,0 +1,26 @@
+<app-header2 [hide_tail]="true" pageName="" [hide_back_button]="true"></app-header2>
+
+<ion-content *ngIf="loaded && !instruction">
+  <div style="padding: 30px;padding-bottom: 0;">
+    <p style="font-size: 20px; font-weight: bold;">
+      {{role_id=="2"?"ما هو محصولك المفضل ؟" : "ما هي النباتات المزروعة ؟"}}
+    </p>
+  </div>
+  <ion-grid style="padding: 40px;padding-top: 0;">
+    <ion-row>
+      <ion-col  size="4" *ngFor="let plant of plants;" (click)="select(plant)">
+        <ion-img class="rounded"  [class.selected]="is_selected(plant)"  [src]="plant.image?  fetch.url_storage + plant.image : 'assets/images/no-image.png'"></ion-img>
+        <p style="text-align: center;padding: 0px;margin-top: 0;"> {{config.translate.currentLang=='en'?plant.name_en: plant.name_ar}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <div >
+    <ion-button style="display: block; margin: auto;"  class="next-btn" (click)="next()">
+      التالي
+    </ion-button>
+</div>
+ 
+</ion-footer>

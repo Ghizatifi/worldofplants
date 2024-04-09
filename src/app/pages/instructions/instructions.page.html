@@ -1,0 +1,44 @@
+<app-header2 pageName="instructions.instructions"></app-header2>
+<ion-content>
+  <div class="card" (click)="goTo(1)">
+    <ion-grid style="display: flex;align-items: center;">
+      <div>
+        <img style="padding: 10px;    min-width: 65px;" [src]=assets.vase alt="">
+      </div>
+     <div>
+      <div>
+        <h3 style="font: 'ralewaybold'; font-size: 18px !important;color:#118B00; font-weight: bolder;">
+          {{"plants_instructions" | translate}}
+        </h3>
+      </div>
+      <div >
+        <h5 style="font: 'ralewaybold'; font-size: 16px !important;color:#118B00; ">
+          {{"instructions.for_good_plants" | translate}}
+        </h5>
+      </div>
+     </div>
+     
+    </ion-grid>
+  </div>
+
+  <div class="card" (click)="goTo(0)">
+    <ion-grid style="display: flex;align-items: center;">
+      <div>
+        <img style="padding: 10px;    min-width: 65px;" [src]=assets.vase alt="">
+      </div>
+     <div>
+      <div>
+        <h3 style="font: 'ralewaybold'; font-size: 18px !important;color:#118B00; font-weight: bolder;">
+          {{"diseases" | translate}}
+        </h3>
+      </div>
+      <div >
+        <h5 style="font: 'ralewaybold'; font-size: 16px !important;color:#118B00; ">
+          {{"instructions.find_disease" | translate}}
+        </h5>
+      </div>
+     </div>
+     
+    </ion-grid>
+  </div>
+</ion-content>

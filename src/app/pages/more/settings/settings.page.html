@@ -1,0 +1,19 @@
+<app-header2 [hide_back_button]="false" pageName="settings.settings" class="main"></app-header2>
+
+
+<ion-content>
+  <div class="main">
+ <ion-list padding>
+    <div class="more-item bordered" *ngFor="let button of buttons" (click)="openPage(button.page , button.link)" >
+      <ion-icon *ngIf="!button.icon_builtin" [src]="button.icon" style="font-size: 25px;" mode="ios"></ion-icon>
+      <ion-icon *ngIf="button.icon_builtin" style="color: green; --color: green ;    font-size: 35px;" mode="ios" [name]="button.icon"></ion-icon>
+      <p style="width: 100%; font-size: 18px;
+      margin: 10px 20px;">
+        {{button.name | translate}}
+      </p>
+      <ion-icon mode="ios" *ngIf="config.lang!='ar'" style="color: grey;" name="arrow-back"></ion-icon>
+      <ion-icon mode="ios" *ngIf="config.lang=='ar'" style="color: grey;" name="arrow-forward"></ion-icon>
+    </div>
+  </ion-list>
+</div>
+</ion-content>

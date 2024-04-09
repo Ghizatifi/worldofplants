@@ -1,0 +1,44 @@
+<app-header2></app-header2>
+<ion-content padding>
+
+  <div style="width: 100%; margin-left: auto; margin-right: auto; margin-top: 20px;">
+    <ion-img style="width: 40%; margin: auto;" src="assets/images/qustion.PNG"></ion-img>
+  </div>
+
+  <div  style="margin: 10px;">
+    <h5 style="font-weight: bold;">
+      {{"we_are_sorry" | translate}}
+    </h5>
+      <div style="margin: 0 10px;">
+          <li>
+         {{ "order_took_long_to_recieve" | translate}}
+          </li>
+
+          <li>
+            {{ "i_need_the_order_in_another_date" | translate}}
+          </li>
+
+          <li>
+            {{ "for_other_reason" | translate}}
+          </li>
+        </div>
+  </div>
+
+  <div class="bordered">
+    <ion-input [(ngModel)]="reason" [placeholder]="utils.translator('please_write_reasons_here')"></ion-input>
+  </div>
+<div  style="width: 100%; margin-left: auto; margin-right: auto; margin-top: 20px;">
+  <ion-button (click)="submit()" [disabled]="!reason" class="next-btn" style="display: block; margin: auto;">
+  
+
+    {{
+      loading
+      ?
+      ""
+      :
+      "send" | translate
+    }}
+    <ion-spinner *ngIf="loading"></ion-spinner>
+  </ion-button>
+</div>
+</ion-content>

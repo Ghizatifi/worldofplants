@@ -1,0 +1,12 @@
+
+<app-header2 pageName="results_history" hide_back_button="true"></app-header2>
+<ion-content padding *ngIf="loaded">
+  <div *ngIf="history.length==0" style="text-align: center;">
+  {{"no_results" | translate}}
+  </div>
+  <div class="bordered" style="display: flex; align-items: center; justify-content: space-between;padding: 10px;    margin-top: 10px;"  *ngFor="let res of history" (click)="openDisease(res)" >
+    <img [src]="fetch.url_storage+res.image">
+    <p *ngIf="res.disease">{{config.lang=='ar'? res.disease.name_ar :  res.disease.name_en}}</p>
+
+  </div>
+</ion-content>

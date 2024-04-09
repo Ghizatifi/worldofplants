@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot='start'>
+      <ion-button buttonType="icon-only" (click)="close()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{title}}</ion-title>
+    <ion-buttons slot='end'>
+      <ion-button buttonType="icon-only">
+        <ion-icon name="arrow-bacdk"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [innerHtml]="content">
+
+</ion-content>

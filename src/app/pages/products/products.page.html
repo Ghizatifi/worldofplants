@@ -1,0 +1,15 @@
+<app-header2 [pageName]="category_name"></app-header2>
+
+<ion-content>
+  <ion-item text-center *ngIf="cats.length==0 && dataLoaded">
+    <ion-label>{{"no_products" | translate}}</ion-label>
+  </ion-item>
+ 
+  <ion-grid >
+    <ion-row>
+      <ion-col size="6" *ngFor='let product of products' class="flex" >
+            <app-product-card (click)="openProduct(product)" [product]="product"></app-product-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid> 
+</ion-content>

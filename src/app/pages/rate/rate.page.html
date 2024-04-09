@@ -1,0 +1,35 @@
+
+<ion-footer>
+  <ion-toolbar>
+    <!-- <ion-title text-center>تقييم المتجر</ion-title> -->
+    <ion-item>
+      <ion-avatar slot="end">
+        <img [src]="'assets/images/logo.png'" />
+      </ion-avatar>
+      <ion-label class='textLabel'>تقييم خدمة</ion-label>
+    </ion-item>
+    
+    <div class='rating' content-align-center item-justify-center>
+      <ionic4-star-rating #rating
+      activeIcon = "ios-star"
+      defaultIcon = "ios-star-outline"
+      activeColor = "#ffd900" 
+      defaultColor = "#f4f4f4"
+      readonly="false"
+      rating="5"
+      fontSize = "32px"
+      (ratingChanged)="logRatingChange($event)">
+    </ionic4-star-rating>
+    
+    <ion-input type='text' [(ngModel)]="comment" placeholder=" كتابة تعليق">
+    </ion-input>
+    
+    <ion-button class="btn" [disabled]="comment==''" (click)="send()" size='block'>
+      <!-- <ion-icon slot="end" name="checkmark-circle"></ion-icon> -->
+     تقييم
+    </ion-button>
+    
+    </div>
+    
+  </ion-toolbar>
+</ion-footer>

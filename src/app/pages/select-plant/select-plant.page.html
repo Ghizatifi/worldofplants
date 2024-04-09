@@ -1,0 +1,41 @@
+<app-header2 [hide_tail]="true" pageName="health_diagnosis"></app-header2>
+<ion-content *ngIf="instruction">
+  <div class="card" *ngFor="let ins of instructions;index as i">
+    <div class="pager">
+      {{i+1}}
+    </div>
+    <ion-grid style="display: flex;align-items: center;" class="bordered">
+      <div>
+        <img *ngIf="ins.image" style="padding: 10px; width: 100px;" [src]=ins.image alt="">
+        <ion-icon *ngIf="ins.icon" style="font-size: 40px; margin: 10px;" [src]=ins.icon ></ion-icon>
+      </div>
+     <div>
+      <div>
+        <h3 style="font: 'ralewaybold'; font-size: 18px !important;color:#118B00; font-weight: bolder;">
+          {{ins.header | translate}}
+        </h3>
+      </div>
+      <div >
+        <h5 style="font: 'ralewaybold'; font-size: 16px !important">{{ins.body | translate}}</h5>
+      </div>
+     </div>
+     
+    </ion-grid>
+  </div>
+  <ion-button class="next-btn" style="display: block; margin: auto; margin-top: 30px;" (click)="instruction=false"> {{"select_plant" | translate}}</ion-button>
+</ion-content>
+<ion-content *ngIf="loaded && !instruction">
+  <div style="padding: 30px;padding-bottom: 0;">
+    <p style="font-size: 20px; font-weight: bold;">
+     {{"what_plant_you_want_to_diagnosis" | translate}}
+    </p>
+  </div>
+  <ion-grid style="padding: 40px;padding-top: 0;">
+    <ion-row>
+      <ion-col  size="4" *ngFor="let plant of plants" (click)="show(plant)">
+        <ion-img class="rounded" [src]="plant.image?  fetch.url_storage + plant.image : 'assets/images/no-image.png'"></ion-img>
+        <p style="text-align: center;padding: 0px;margin-top: 0;"> {{config.translate.currentLang=='en'?plant.name_en: plant.name_ar}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

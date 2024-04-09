@@ -1,0 +1,12 @@
+.bottom_container{
+    padding: 20px;
+}
+.inline{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+.dots{
+    border: 0.1px dotted gray;
+    width: 65%;
+}

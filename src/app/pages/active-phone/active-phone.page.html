@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="logOut()" style="color:black;">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- <ion-title>تأكيد رقم الهاتف</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <h1>
+      تأكيد رقم الهاتف
+    </h1>
+    <p class="header">
+      تم ارسال كود التفعيل للرقم : 
+      <span dir="ltr">+962{{phone}}</span>
+      يرجى ادخاله في المربع
+    </p>
+    <!-- <p class="title" dir="ltr">
+      +961{{phone}} 
+    </p> -->
+
+    <ion-item>
+      <ion-input 
+      [(ngModel)]="code" 
+      type="number" 
+      placeholder="XXXXXX"
+      maxlength="6"
+      (ionChange)="log($event)"
+      ></ion-input>
+    </ion-item>
+    <!-- <p class="msg">
+      أدخل الرمز المكون من 6 أرقام
+    </p> -->
+    <p class="resend" *ngIf="time > 0">
+      يمكنك إعادة المحاولة مجدداً خلال {{timerText}} دقيقة
+    </p>
+    <p class="resend" *ngIf="time == 0">
+      <ion-button class="resend-btn" (click)="resendCode()">إرسال الكود مرة أخرى؟</ion-button>
+    </p>
+
+    <!-- <ion-button class="send-btn" [disabled]="!code || code.toString().length != 6 || loading" (click)="activeAccount()">
+      <ion-spinner *ngIf="loading"></ion-spinner>
+      {{
+        loading ?
+        ""
+        :
+        'تأكيد'
+      }}
+    </ion-button> -->
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button class="send-btn" [disabled]="!code || code.toString().length != 6 || loading" (click)="activeAccount()">
+      <ion-spinner *ngIf="loading"></ion-spinner>
+      {{
+        loading ?
+        ""
+        :
+        'تأكيد'
+      }}
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

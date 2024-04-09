@@ -1,0 +1,36 @@
+.small_image{
+    max-height: 100px !important;
+    width: auto;
+}
+.bigImage{
+
+    max-height: 200px !important;
+    width: auto;
+}
+.flex-dis{
+    display: flex;
+  padding:.5px !important;
+  margin:0px !important;
+}
+ion-card{
+    padding:0x !important;
+    margin:10px !important;
+    box-shadow: none !important;
+    background: white;
+    ion-card-content{ 
+        background-color: white;
+        color: black;
+        font-weight: bold;
+    }
+}
+h4{
+    font-weight: bold;
+    color: black;
+}
+.tip1{
+    height: 163px;
+    width: 100%;
+    background: url("../../../assets/images/tips/tip1.PNG");
+    background-size: contain;
+    background-repeat: no-repeat;
+}

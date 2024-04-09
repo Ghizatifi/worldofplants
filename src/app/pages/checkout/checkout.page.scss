@@ -1,0 +1,26 @@
+.bottom_container{
+    padding: 20px;
+}
+.inline{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+.dots{
+    border: 0.1px dotted gray;
+    width: 65%;
+}
+.coupon-item{
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    border: 2px solid #d5d5d5;
+    background: #d5dccc2e;
+}
+
+ion-img.box_image{
+    width: 100px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: inherit;
+}

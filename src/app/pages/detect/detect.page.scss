@@ -1,0 +1,150 @@
+.wrapper, .login, .register {
+    // width: 100%;
+    // height: 100%;
+    padding: 20px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .wrapper {
+    
+  
+    ion-button:nth-of-type(1) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        --background: white;
+        --color: #48a240;
+    }
+  }
+  img {
+    width: 50%;
+  }
+  .buttons  {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .social-login {
+    text-align: center;
+    div { text-align: center }
+    ion-icon {
+        font-size: 50px;
+        margin: 15px;
+    }
+  }
+  
+  form {
+    text-align: center;
+    ion-item {
+        --padding-end: 15px;
+    }
+  }
+  
+  img {
+    margin-bottom: 15px;
+  }
+  
+  .role-id {
+    ion-button {
+        width: 50%;
+        --border-radius: 0;
+        border: 2px solid #48a240;
+        --box-shadow: none;
+        height: 50px;
+    }
+    ion-button:nth-of-type(1) {
+        --background: #48a240;
+        --color: white;
+        transform: scale(1.1);
+    }
+    ion-button:nth-of-type(2) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        --background: white;
+        --color: #48a240;
+    }
+  }
+  
+  .placeholder-ltr {
+    direction: rtl;
+  }
+  .placeholder-ltr.has-focus {
+    direction: ltr;
+  }
+  ion-row{
+    justify-content: center;
+    align-items: center;
+  }
+  .ion-content{
+    padding: 20px;
+  }
+  .fullWidth {
+    text-align: center;
+    ion-item {
+        --padding-end: 15px;
+    }
+  }
+  .custom-ion-content{
+    --background:transparent;
+    
+      // --background-image: url("/assets/images/15.svg");
+      //background: #fff url('../../assets/images/15.svg') no-repeat center center / cover;
+    
+  }
+  .middle{
+    //background-image: url('../../../assets/images/scanner.svg');
+      /* 
+       background-repeat: no-repeat;
+       background-size: cover; */
+       position: absolute;
+
+       width: 100vw;
+      
+
+      
+        width: 100%;
+        height: 80vh;
+      object-position: top;
+      object-fit: cover;
+    
+  }
+  ion-footer {
+    // &.footer-md::before {
+    //     background-image: none;
+    // }
+    --background:white;
+    background: white;
+}
+ion-content{
+  // background: red;
+}
+.scroll-content {
+  margin-bottom: 0!important;
+}
+.foot{
+  --background: white;
+  background: white;
+  position: fixed;
+  bottom: 20px;
+  ion-chip{
+    --background: white;
+    background: white;
+  }
+  ion-icon{
+    --background: white;
+    background: white;
+    border-radius: 50%;
+  }
+}
+
+.ranger{
+  display: block;
+  position: absolute;
+  width: 100%;
+  bottom: -10px;
+
+}

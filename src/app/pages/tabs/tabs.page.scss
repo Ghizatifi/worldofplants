@@ -1,0 +1,27 @@
+ion-icon{
+    font-size: 22px;
+}
+
+ion-tab-button ion-label{
+    font-size: 16px;
+}
+ ion-tab-button.tab-selected ion-icon {
+    // filter :invert(33%) sepia(73%) saturate(765%) hue-rotate(63deg) brightness(95%) contrast(92%);
+    filter:invert(25%) sepia(40%) saturate(2065%) hue-rotate(70deg) brightness(54%) contrast(95%);
+  }
+
+
+//   ion-tab-button.tab-selected ion-icon {
+//     filter :invert(33%) sepia(73%) saturate(765%) hue-rotate(63deg) brightness(95%) contrast(92%);
+//   }
+
+// ion-tab-button:active :focus{
+//     ion-icon{
+//         filter :invert(33%) sepia(73%) saturate(765%) hue-rotate(63deg) brightness(95%) contrast(92%);
+//     }
+// }
+// ion-tab-button:focus{
+//     ion-icon{
+//         filter :invert(33%) sepia(73%) saturate(765%) hue-rotate(63deg) brightness(95%) contrast(92%);
+//     }
+// }

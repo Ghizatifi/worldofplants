@@ -1,0 +1,21 @@
+<app-header2 [pageName]="is_plants? 'plants' : 'diseases'"></app-header2>
+<ion-content padding>
+<ion-list>
+  <!-- <div style="display: flex;align-items: center;" class="bordered" *ngFor="let plant of plants"> -->
+    <ion-row class="bordered" *ngFor="let item of list"  (click)="details(item.id)" style="margin-top: 10px;">
+      <ion-col size="4">
+        <img-loader *ngIf="is_plants" useImg  class="small_img" [src]="item.image ? fetch.url_storage + item.image : 'assets/images/logo.png'"  ></img-loader>
+
+        <img-loader *ngIf="!is_plants" useImg  class="small_img" [src]="item.images && item.images.length>0 ? fetch.url_storage + item.images[0] : 'assets/images/logo.png'"  ></img-loader>
+
+      </ion-col>
+      <ion-col size="8" style="display: flex;align-items: center;">
+        <p style="margin: 20px;font-size: 18px;font-weight: bold;">
+         {{config.translate.currentLang!='en'?item.name_ar:item.name_en}}
+        </p>
+      </ion-col>
+    </ion-row>
+   
+  <!-- </div> -->
+</ion-list>
+</ion-content>

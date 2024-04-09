@@ -1,0 +1,26 @@
+
+<ion-content>
+  <ion-slides class="z-index:0"  #slides  pager="true" >
+    <ion-slide *ngFor="let b of boards">
+      <div class="slide_content">
+        <img style="" [src]="b.image" alt="">
+        <h1>
+        {{b.title | translate}}
+        </h1>
+    
+        <p>
+        {{b.body | translate}}
+       </p>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+  <div class="footer">
+    <div class="footer_content" >
+      <div (click)="skip()">{{"skip" | translate}}</div>
+      <div (click)="next()">
+        <img style="width: 50px;" src="assets/images/circle_button.png" alt="">
+      </div>
+    </div>
+  </div>
+</ion-content>

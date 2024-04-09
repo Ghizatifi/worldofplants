@@ -1,0 +1,42 @@
+<ion-toolbar>
+
+<div class="card">
+
+  <ion-buttons  *ngIf="!user"  slot="end">
+    <!-- <ion-back-button style="font-size: 20px;" *ngIf="!hide_back_button" (click)="pop()"   defaultHref="tabs/home" text="" [icon]="config.lang=='ar'?'arrow-back':'arrow-forward'"  mode="ios"></ion-back-button> -->
+    <ion-icon *ngIf="!hide_back_button" (click)="pop()"   mode="ios" [name]="config.lang=='ar'?'arrow-back':'arrow-forward'"></ion-icon>
+  </ion-buttons> 
+
+  <!-- set page name in the center of the header and use it when user is set to false -->
+  <div *ngIf="!user" class="title">
+    <h5 style="font: 'ralewaybold';font-weight: bold; font-size: 20px !important ; color: #000000 ; text-align: center;">{{pageName | translate}}</h5>
+   </div>
+   <!-- setting the username and image when user is set to true -->
+  <ion-grid *ngIf="user" class="user" style="display: flex;align-items: center;">
+    <div>
+      <ion-avatar (click)="navigate('profile')">
+      <img style="padding: 10px;    min-width: 65px;" [src]="config.user.avatar?fetch.url_storage+config.user.avatar:fetch.url_storage+'users/default.png'" alt="">
+    </ion-avatar>
+    </div>
+   <div >
+    <div>
+      <h3 style="font: 'ralewaybold'; font-size: 16px !important;color:#646464;margin: 0;">
+      {{"welcome" | translate}}
+      </h3>
+    </div>
+    <div >
+      <h5 style="font: 'ralewaybold'; font-size: 20px !important ; color: #000000 ; font-weight: bolder;margin: 0">{{config.user.name}}</h5>
+    </div>
+   </div>
+
+  </ion-grid>
+
+
+
+  <!-- the tail (cart and notification buttons) -->
+   <div *ngIf="!hide_tail" class="tail">
+      <ion-icon *ngIf="!hide_cart"  (click)="navigate('cart')" src="assets/images/icons/cart.svg"></ion-icon>
+      <ion-icon (click)="navigate('notifications')"  src="assets/images/icons/notifications.svg"></ion-icon>
+   </div>
+</div>
+</ion-toolbar>

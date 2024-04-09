@@ -1,0 +1,61 @@
+<app-header2 pageName="store"></app-header2>
+
+<ion-content>
+  <ion-searchbar style="padding: 20px;" animated [(ngModel)]="search_key" (search)="search()"></ion-searchbar>
+  <ion-row class="flex_content">
+    <p class="title">
+      {{"categories" | translate}}
+    </p>
+    <p class="showAll" (click)="showAllCategories()" >
+      {{"view_all" | translate}}
+    </p>
+    <ion-slides [options]="slideOptsOne" style="direction: ltr;padding: 5px;min-height: 164px !important;"  >
+
+      <ion-slide *ngFor="let cat of categories" style="width:60px !important ; height: 200px;border-radius: 0;display: flex;" (click)="showCategoryProducts(cat)">
+
+        <ion-card class="category_card" (click)="showCategoryProducts(cat)">
+          <img class="image" [src]="fetch.url_storage+cat.image" alt="">
+          <ion-card-header>
+            <ion-card-title>
+              {{config.translate.currentLang!='en'?cat.name:cat.name_en}}
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-slide>
+
+    
+    </ion-slides>
+
+  </ion-row>
+  <ion-row class="flex_content" >
+    <p class="title">
+      {{"top_ordered" | translate}}
+    </p>
+    <p class="showAll"  (click)="showTopOrdered()">
+      {{"view_all" | translate}}
+    </p>
+  </ion-row>
+ 
+  <ion-slides [options]="slideOpts" style="direction: rtl;padding: 5px"  >
+    <ion-slide  *ngFor="let product of top_ordered_products"  class="unset_slide" style="border-radius: 0;">
+     <app-product-card [product]="product"></app-product-card>
+    </ion-slide>
+  </ion-slides>
+
+  
+<ion-row class="flex_content" >
+  <p class="title">
+    {{"new_products" | translate}}
+  </p>
+  <p class="showAll" (click)="showRecentProducts()">
+    {{"view_all" | translate}}
+  </p>
+</ion-row>
+
+<ion-slides [options]="slideOpts" style="direction: rtl;padding: 5px"  >
+  <ion-slide  *ngFor="let product of products"  class="unset_slide" style="border-radius: 0;">
+   <app-product-card [product]="product"></app-product-card>
+  </ion-slide>
+</ion-slides>
+
+</ion-content>

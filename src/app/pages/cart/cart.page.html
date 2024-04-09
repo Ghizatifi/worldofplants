@@ -1,0 +1,92 @@
+<app-header2 [pageName]="pageName" [hide_cart]="true"></app-header2>
+
+<ion-content>
+  <ion-item *ngIf="config.getCartSize()==0" text-center>
+    <ion-label>{{"cart_empty" | translate}} </ion-label>
+  </ion-item>
+  <div class="cart-item bordered" style="margin: 20px;position: relative;" *ngFor="let item of config.cart">
+    <ion-icon (click)="config.remove_to_Cart(item)" style="font-size: 35px; position: absolute; z-index: 1; top: -15px; right: -10px;" [src]="assets.close"></ion-icon>
+    <ion-grid style="padding-bottom: 0;">
+      <ion-row class="main-row">
+        <ion-col size="4" style="padding-bottom: 0;">
+          <img [src]="item.image ? fetch.url_storage+ item.image : 'assets/images/logo.png'" (click)="openProduct(item)">
+        </ion-col>
+        <ion-col size="8" class="grid-col">
+          <ion-grid>
+            <ion-row class="item-title"  (click)="openProduct(item)">
+              <p style="font-weight: 700;" >
+                {{config.translateWord(item) | slice:0:12}}
+                <span *ngIf="config.translateWord(product).length>12">...</span>
+              </p>
+            </ion-row>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span>
+                {{item.total_price}} JD 
+              </span>
+            <!-- <ion-row *ngIf="item.description" class="item-price">
+              <p [innerHtml]="item.description"></p>
+          </ion-row> -->
+          <ion-grid class="counter" style="position: absolute;left: 0;">
+            <ion-row no-margin  no-padding>
+              <ion-col size="4" >
+                <div class="counter_button delete" (click)="config.remove_to_Cart(item)" >
+                  <ion-icon name="remove"></ion-icon>
+                </div>
+              </ion-col>
+  
+              <ion-col size="4" style="text-align: center;">  {{config.getItemQuaintyFromId(item.id)}}
+              </ion-col>
+  
+              <ion-col size="4" (click)="config.add_to_Cart(item)">
+                <div  class="counter_button add"  >
+                  <ion-icon name="add"></ion-icon>
+                </div>
+              </ion-col>
+             
+            </ion-row>
+          </ion-grid> 
+        </div>
+        
+        </ion-grid>
+        </ion-col>
+      </ion-row>
+      <div >
+      </div>
+    
+    </ion-grid>
+  </div>  
+
+  <div  *ngIf="config.getCartSize()!=0"  class="bottom_container">
+  <div class="inline">
+    <p>
+      {{"total" | translate}}
+    </p>
+    <div class="dots">
+    </div>
+    <p>
+      {{total()+' JD '}}
+    </p>
+  </div>
+ 
+</div>
+
+
+<div  *ngIf="config.getCartSize()!=0"  class="inline" style="color: green ; font-weight: bold;padding: 0 20px;background: #108b003f;">
+  <p>
+    {{"total_all" | translate}}
+  </p>
+  <p>
+    {{total()+' JD '}}
+  </p>
+</div>
+</ion-content>
+
+
+<ion-footer *ngIf="haveMoreThanOneItem()">
+  <div style="display: flex; justify-content: center;">
+  <ion-button rounded class="next-btn" (click)="goToCheckOut()"  >
+    {{"next"  | translate}}
+
+  </ion-button>
+</div>
+</ion-footer>

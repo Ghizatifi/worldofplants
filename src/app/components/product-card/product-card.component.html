@@ -1,0 +1,37 @@
+<div class="product_card_container">
+  <div *ngIf="product.is_offer" class="offer" >
+    <ion-icon [src]="assets.offer"></ion-icon> 
+    <p >{{product.offer}}%</p>
+
+  </div>
+  <ion-card >
+      <img-loader class="product_image" (click)="openProduct()"   useImg  [src]="product.image ? fetch.url_storage + product.image : 'assets/images/logo.png'"  (ionError)="imageError($event)"></img-loader>
+      
+      <ion-card-content >
+        <div style="display: flex; justify-content: space-between;align-items: center;">
+        <p  style="font-size: 18px;color: black;max-width: 70%;" class="ion-text-nowrap" >{{config.translateWord(product) | slice:0:12}}
+          <span *ngIf="config.translateWord(product).length>12">...</span>
+        </p>
+        <div class="heart" (click)="config.switchFav(product)"  [class.is_fev]="config.getItemFromFavourite(product.id)" ></div>
+        <!-- <ion-icon style="font-size: 24px;--color: red ; color: red" name="heart"></ion-icon> -->
+      </div>
+
+      <div style="display: flex; justify-content: space-between;align-items: center;">
+        <p  class="price">  
+          {{product.profit}} JD
+          <!-- <span class="price-unit">
+            {{product.unit}}
+          </span> -->
+        </p>
+        <p class="old_price" style="">
+          {{product.old_price?product.old_price: ""}}
+        </p>
+      </div>
+        <ion-button class="flat_button" expand="block"   style="font-size: 12px;" color="secondary" (click)="config.add_to_Cart(product,product.count)" >
+          {{"add_to_cart" | translate}}
+          <ion-icon name="cart" style="font-size: 24px;"></ion-icon>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+  </div> 

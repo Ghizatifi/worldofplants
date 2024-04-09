@@ -1,0 +1,20 @@
+{
+    "android": {
+        "debug": {
+            "keystore": "./key.keystore",
+            "storePassword": "slyd4r",
+            "alias": "slyd4r",
+            "password" : "slyd4r",
+            "keystoreType": "",
+            "packageType": "apk"
+        },
+        "release": {
+            "keystore": "./key.keystore",
+            "storePassword": "slyd4r",
+            "alias": "slyd4r",
+            "password" : "slyd4r",
+            "keystoreType": "",
+            "packageType": "bundle"
+        }
+    }
+}

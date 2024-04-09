@@ -1,0 +1,8 @@
+
+<ion-content>
+  <app-header2 [hide_back_button]="true" [user]="true" [username]=''></app-header2>
+  <!-- <div (click)="result()" style="padding: 20px; background: rebeccapurple; display: block ;width: 100%; margin: auto;">
+    click ,me I will open result
+  </div> -->
+  <app-home-card  *ngFor="let card of cards" [header]="card.header" [body]="card.body" [image]="card.image" (click)="navigate(card.navigate)"></app-home-card>
+</ion-content>

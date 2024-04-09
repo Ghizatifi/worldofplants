@@ -1,0 +1,54 @@
+<app-header2 [hide_back_button]="true" [pageName]="my_orders"></app-header2>
+<ion-content class="ion-padding">
+<div class="bordered">
+  <ion-segment 
+[(ngModel)]="screen"
+dir="rtl">
+  <ion-segment-button 
+  (ionSelect)="slide(i)"
+  *ngFor="let cat of categories; index as i"
+  value="{{i}}">
+    <ion-label *ngIf="config.translate.currentLang!='en'">{{cat.name_ar}}</ion-label>
+    <ion-label *ngIf="config.translate.currentLang=='en'">{{cat.name_en}}</ion-label>
+  </ion-segment-button>
+</ion-segment> 
+</div>
+<ion-slides 
+#slider
+(ionSlideDidChange)="handleChange();" 
+(ionSlidesDidLoad)="sliderLoaded()"
+dir="ltr">
+
+  <ion-slide *ngFor="let cat of categories" dir="rtl">
+   
+    <ion-item text-center *ngIf="cat.orders.length==0">
+      <ion-label text-center>{{"no_orders" | translate}}</ion-label>
+    </ion-item>
+    <ion-grid>
+      <div  *ngFor="let order of cat.orders" class="order_container">
+        <ion-row>
+          <ion-col size="8" class="flex">
+            {{"order_number" | translate}}#{{order.id}}
+          </ion-col>
+          <ion-col>
+            <div (click)="track(order.id)" style="border-radius: 50px; border: 1px solid var(--ion-color-secondary); text-align: center; padding: 0 1px; color: var(--ion-color-secondary);">
+              {{"track_order" | translate}}
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col  class="flex">
+          <ion-icon style="color: grey" name="alarm"></ion-icon>
+          <p style="margin: 0 10px;">{{order.created_at | date}}</p>
+          <ion-icon style="color: grey" src="assets/images/icons/dolar.svg"></ion-icon>
+          <p style="margin: 0 10px;">{{order.d_price}}</p>
+          </ion-col>
+         
+        </ion-row>
+      </div>
+      
+    </ion-grid>
+  </ion-slide>
+</ion-slides>
+
+</ion-content>

@@ -1,0 +1,51 @@
+
+<ion-content dir="rtl" class='custom-ion-content'>
+
+  <img src="assets/images/scanner.svg" class='middle' alt="">
+ 
+
+  <div class="ranger">
+    <!-- <ngx-slider [(value)]="value" [options]="sliderOptions"></ngx-slider> -->
+  <ion-range style="direction: rtl;" min="1" max="100" pin color="secondary" [(ngModel)]="setZoom" (ionChange)="changeZoom()">
+    <ion-icon slot="end" size="small" name="add"></ion-icon>
+    <ion-icon slot="start" name="remove"></ion-icon>
+  </ion-range>
+</div>
+</ion-content>
+
+<ion-footer >
+  <div>
+  <ion-grid fixed>
+    <ion-row text-center justify-content-center item-align-items-center >
+     <ion-col size="4">
+      <ion-chip color="secondary" (click)="tips()" style="font-size:18px;">
+        <ion-label>{{"tips_camera" | translate}}</ion-label>
+        <ion-icon name="help"></ion-icon>
+
+      </ion-chip>
+     </ion-col>
+
+     <ion-col size="4"   >
+       <ion-button (click)="takePicture()" color="primary"  expand="block" fill="clear" shape="round"> 
+        <ion-icon   name="radio-button-on" color="primary" style="font-size:22px;zoom: 2 "></ion-icon>
+      </ion-button>
+     </ion-col>
+
+     <ion-col size="4" style="display: flex;justify-content: center;align-items: center;padding: 0; margin: 0;">
+     
+       <ion-icon (click)="switchFlashMode()"  name="flash" [color]="flashMode=='torch'?'secondary':'dark'" style="font-size:22px;zoom: 2 "></ion-icon>
+     
+    
+       <div   (click)="uploadfn()"  style="display: flex;flex-direction: column;" >
+        <ion-avatar style="width: 40px;height: 40px; padding: 0; margin: 0 ">
+          <ion-img src="assets/images/galary.jpg"></ion-img>
+        </ion-avatar>
+        <p style="text-align: center;padding: 0px; margin: 0;">{{"studio" | translate}}</p>
+      </div>
+
+     </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+</ion-footer>
+

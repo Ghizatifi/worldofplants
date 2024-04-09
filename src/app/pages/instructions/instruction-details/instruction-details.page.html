@@ -1,0 +1,154 @@
+<ion-content  *ngIf="loaded && disease_id" padding>
+
+<div  class="head">
+  <div class="bar" dir="rtl">
+    <ion-icon [src]="assets.backward_ios" class="backButtonPop" (click)="pop()" ></ion-icon>
+    <!-- <div [ngClass]="config.getItemFromFavourite(product.id)?'is_fevourite':'is_not_fevourite'">
+    <ion-icon    name="heart" size='large' style="--color:red" (click)="config.switchFav(product)" ></ion-icon>
+  </div> -->
+ </div>
+  <img-loader  useImg class="image_bar" [src]="result.images.length>0 ? fetch.url_storage+ result.images[0] : 'assets/images/logo.png'"></img-loader>
+</div>
+    
+
+
+<div class="container">
+  <div class="top">
+    <ion-label class='label'>
+      {{config.translate.currentLang!='en'?result.name_ar:result.name_en}}
+    </ion-label>
+
+
+    <div class="state_title">
+      <ion-icon color="secondary" name="pulse"></ion-icon>
+      <p>
+        {{"heath_state" | translate}}
+      </p>
+    </div>
+
+    <div style="font-size: 14px;color: #555555;">
+      <p>
+        {{config.translate.currentLang!='en'?result.name:result.name_en}}
+      </p>
+
+      <p>
+        {{config.translate.currentLang!='en'?result.disease_state_ar:result.disease_state_en}}
+      </p>
+      
+    </div>
+    <ion-slides [options]="slideOptsOne" style="direction: ltr;padding: 5px;" slidesPerView="auto" freeMode="true" >
+
+      <ion-slide class="unset_slide" *ngFor="let img of  result.images">
+        <img-loader (click)="utils.viewImage(result.images)" useImg class="slideImage100px" [src]="fetch.url_storage+ img"></img-loader>
+      </ion-slide>
+    </ion-slides>
+    <div *ngIf="show_confirm_result">
+    <p>
+      {{"do_you_agree_result" | translate}}
+    </p>
+    
+    <div  style="display: flex;">
+      <div (click)="storeResult('yes')" class="filled_button">YES</div>
+      <div style="width: 5px;"></div>
+      <div  (click)="storeResult('no')"  class="outlined_button">NO</div>
+    </div>
+  </div>
+    <p class="divider"></p>
+    <div class="state_title">
+      <ion-icon color="secondary" name="paper"></ion-icon>
+      <p>
+        {{"diseaseDescription" | translate}}
+      </p>
+    </div>
+
+
+    <p  style="font-size: 14px;color: #555555;">
+      {{config.translate.currentLang!='en'?result.description_ar:result.description_en}}
+    </p>
+
+
+    <p class="divider"></p>
+    <div class="state_title">
+      <ion-icon color="secondary" name="medkit"></ion-icon>
+      <p>
+        {{"cures" | translate}}
+      </p>
+    </div>
+
+
+    <ion-slides [options]="productSlideOptions" style="direction: ltr;padding: 5px;min-height: 164px !important;" slidesPerView="auto" freeMode="true" >
+
+      <ion-slide *ngFor='let product of products'   class="unset_slide" >
+        <app-product-card [product]="product"></app-product-card>
+      </ion-slide>
+    </ion-slides>
+   
+
+  </div>
+
+
+ 
+  </div>
+
+</ion-content>
+
+<ion-content  *ngIf="loaded && plant_id" padding>
+<div  class="head">
+  <div class="bar" dir="rtl">
+    <ion-icon [src]="assets.backward_ios" class="backButtonPop" (click)="pop()" ></ion-icon>
+    <!-- <div [ngClass]="config.getItemFromFavourite(product.id)?'is_fevourite':'is_not_fevourite'">
+    <ion-icon    name="heart" size='large' style="--color:red" (click)="config.switchFav(product)" ></ion-icon>
+  </div> -->
+ </div>
+  <img-loader  useImg class="image_bar" [src]="result.images? fetch.url_storage+ result.image : 'assets/images/logo.png'"></img-loader>
+</div>
+    
+
+
+<div class="container">
+  <div class="top">
+    <p class='label'>
+      {{config.translate.currentLang!='en'?result.name_ar:result.name_en}}
+    </p>
+   
+    <p style="font-weight: 400;">
+      {{config.translate.currentLang!='en'?result.description_ar:result.description_en}}
+    </p>
+
+    <ion-row style="padding: 0; margin: 0;" *ngFor="let ex of extras" >
+      <ion-col size="3" style="display: flex; align-items: center;">
+      <ion-avatar>
+        <ion-img [src]="ex.icon"></ion-img>
+      </ion-avatar>
+    </ion-col>
+    <ion-col  size="8" style="margin: 0;">
+        <p style="font-weight: bold;margin: 0;">
+          {{ex.title}}
+        </p>
+        <p  style=" margin: 0; font-weight: 300;">
+         {{ex.body}}
+        </p>
+    </ion-col>
+    </ion-row>
+
+
+
+    <div class="state_title">
+      <ion-icon color="secondary" name="medkit"></ion-icon>
+      <p>
+      {{"products_needed_for_care" | translate}}
+      </p>
+    </div>
+
+
+    <ion-slides [options]="productSlideOptions" style="direction: ltr;padding: 5px;min-height: 164px !important;" slidesPerView="auto" freeMode="true" >
+
+      <ion-slide *ngFor='let product of products'   class="unset_slide" >
+        <app-product-card [product]="product"></app-product-card>
+      </ion-slide>
+    </ion-slides>
+   
+  </div>
+  </div>
+
+</ion-content>

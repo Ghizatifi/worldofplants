@@ -1,0 +1,17 @@
+
+<ion-content>
+<div style="height: 100%; padding: 20px;display: flex ; flex-direction: column;justify-content: center; align-items: center;">
+  <ion-icon style="width: 100%; height: 158px; margin: 40px 0;" [src]="assets.success_mark"></ion-icon>
+  <p style="font-size: 20px; font-weight: bold;">
+    تم ارسال طلبك بنجاح
+  </p>
+  <p style="font-size: 18px;text-align: center;">
+    تم ارسال لطلبك بنجاح قم بتتبع طلبك من خلال قائمة طلباتي
+  </p>
+
+  <div style="margin-top: 10px; font-size: 20px;"></div>
+  <ion-button (click)="track_order()" class="next-btn">تتبع الطلب</ion-button>
+  <ion-button (click)="home()" class="clear-btn"> الرئيسية</ion-button>
+
+</div>
+</ion-content>

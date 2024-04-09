@@ -1,0 +1,57 @@
+<app-header2 [hide_cart]="true" [pageName]="'العنوان'"></app-header2>
+
+<ion-content style="--padding: 20px;">
+  <ion-list>
+   <p>
+    {{"city" | translate}}
+   </p>
+    <div class="bordered">
+      <ion-select [placeholder]="config.user.area? config.user.area.city.name:''" interface="action-sheet"  (ionChange)="changeCity()" cancelText="تراجع "
+      [(ngModel)]="city">
+        <ion-select-option *ngFor="let c of citys" value="{{c.id}}">{{c.name}}</ion-select-option>
+      </ion-select>
+    </div>
+    
+    <p>
+      {{"area" | translate}}
+     </p>
+    <div  class="bordered">
+      <ion-select [placeholder]="config.user.area?config.user.area.name:''" interface="action-sheet" cancelText="تراجع "
+      [disabled]="!city" [(ngModel)]="area">
+        <ion-select-option *ngFor="let a of city_areas" value="{{a.id}}"  >{{a.name}}</ion-select-option>
+      </ion-select> 
+    </div>
+
+
+    <p>
+      {{"street" | translate}}
+     </p>
+
+    <div  class="bordered">
+      <!-- <ion-icon slot="start" name="md-pin"></ion-icon> -->
+      <ion-input type="text"  [(ngModel)]="street"></ion-input>
+    </div>
+
+  </ion-list>
+  <br>
+
+  <p (click)="selectLocation()" style="text-decoration: underline;">
+    {{utils.translator("save")}}
+   </p>
+
+  <div style="display: flex; justify-content: center;">
+  <ion-button class="next-btn" (click)="isEdit ? saveEdit() : save()" [disabled]="loading">
+    {{
+      !loading ? 
+        isEdit
+        ?
+        utils.translator("save")
+        :
+        utils.translator("save")
+      :
+      ""
+  }}
+  <ion-spinner *ngIf="loading"></ion-spinner>
+  </ion-button>
+</div>
+</ion-content>

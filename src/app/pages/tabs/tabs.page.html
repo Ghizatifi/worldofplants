@@ -1,0 +1,41 @@
+
+
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    
+    <ion-tab-button tab="home" mode="ios">
+      <ion-icon [src]="assets.home" ></ion-icon>
+      <ion-label>{{"home" | translate}}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="orders" mode="ios">
+      <ion-icon  [src]="assets.orders"></ion-icon>
+      <ion-label>{{"orders" | translate}}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="favourites" mode="ios">
+      <ion-icon  [src]="assets.heart"></ion-icon>
+      <ion-label>{{"favourite" | translate}}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="offers" mode="ios">
+      <ion-icon   [src]="assets.offers" ></ion-icon>
+      <ion-label>{{"offers" | translate}}</ion-label>
+    </ion-tab-button>
+
+
+    <ion-tab-button tab="results-history" mode="ios">
+      <ion-icon   [src]="assets.success_mark" ></ion-icon>
+      <ion-label>{{"results_history" | translate}}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="more" mode="ios">
+      <ion-icon name="ios-more"></ion-icon>
+      <ion-label>{{"more" | translate}}</ion-label>
+    </ion-tab-button>
+
+
+  </ion-tab-bar>
+
+</ion-tabs>

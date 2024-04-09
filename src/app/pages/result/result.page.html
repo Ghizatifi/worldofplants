@@ -1,0 +1,111 @@
+<ion-content *ngIf="loaded && !showMore">
+  <app-header2 pageName="health_diagnosis" navHome="true"></app-header2>
+
+  <div style="margin-top: 10px;">
+    <img class="image" useImg   [src]="img?img : 'assets/images/logo.png'" />
+  </div>
+  <div style="display: flex; flex-direction: column;justify-content: center; align-items: center; text-align: center;">
+    <p style="font-size: 18px; font-weight: bold ;color: green;"> {{"result_succeed_with_percent" | translate}}  {{(probability*100).toFixed(1)+"%"}}</p>
+    <p style="font-size: 20px; font-weight: bold ;color: grey;"> {{"its_disease_of" | translate}}  
+      <span style="color: var(--ion-color-secondary); font-size: 20px;">
+        {{config.translate.currentLang!='en'?result.name_ar:result.name_en}}
+      </span>
+    </p>
+
+    <ion-button style="--width:200px !important; width:200px !important; font-size: 16px !important;" (click)="showMore=true" class="next-btn">
+      {{"learn_more" | translate}}
+    </ion-button>
+  </div>
+</ion-content>
+
+
+
+<ion-content  *ngIf="loaded && showMore">
+  <!-- <app-header2></app-header2> -->
+<div  class="head">
+  <div class="bar" dir="rtl">
+    <ion-icon [src]="assets.backward_ios" class="backButtonPop" (click)="close()" ></ion-icon>
+ </div>
+  <img-loader   (click)="utils.viewImage([img])" useImg class="image_bar" [src]="img"></img-loader>
+</div>
+    
+<div class="container">
+  <div class="top">
+    <ion-label class='label'>
+      {{config.translate.currentLang!='en'?result.name_ar:result.name_en}}
+    </ion-label>
+    <p *ngIf="probability" style="font-size: 18px; font-weight: bold ;color: black;margin: 0 ;"> {{"result_succeed_with_percent" | translate}}  <span style="color: green;">{{(probability*100).toFixed(1)+"%"}}</span></p>
+    <p class="divider"></p>
+
+    <div class="state_title">
+      <ion-icon color="secondary" name="pulse"></ion-icon>
+      <p>
+        {{"heath_state" | translate}}
+      </p>
+    </div>
+
+    <div style="font-size: 14px;color: #555555;">
+      <p>
+        {{config.translate.currentLang!='en'?result.name_ar:result.name_en}}
+      </p>
+
+      <p>
+        {{config.translate.currentLang!='en'?result.disease_state_ar:result.disease_state_en}}
+      </p>
+      
+    </div>
+    <ion-slides [options]="slideOptsOne" style="direction: ltr;padding: 5px;" slidesPerView="auto" freeMode="true" >
+
+      <ion-slide *ngFor="let img of  result.images">
+        <img-loader  (click)="utils.viewImage(result.images)" useImg class="slideImage100px" [src]="fetch.url_storage+ img"></img-loader>
+      </ion-slide>
+    </ion-slides>
+    <div *ngIf="show_confirm_result">
+    <p>
+      {{"do_you_agree_result" | translate}}
+    </p>
+    
+    <div  style="display: flex;">
+      <div (click)="accept_result('yes')" class="filled_button">{{"yes" | translate}}</div>
+      <div style="width: 5px;"></div>
+      <div  (click)="accept_result('no')"  class="outlined_button">{{"no" | translate}}</div>
+    </div>
+  </div>
+    <p class="divider"></p>
+    <div class="state_title">
+      <ion-icon color="secondary" name="paper"></ion-icon>
+      <p>
+        {{"diseaseDescription" | translate}}
+      </p>
+    </div>
+
+
+    <p  style="font-size: 14px;color: #555555;">
+      {{config.translate.currentLang!='en'?result.description_ar:result.description_en}}
+    </p>
+
+
+    <p class="divider"></p>
+    <div class="state_title">
+      <ion-icon color="secondary" name="medkit"></ion-icon>
+      <p>
+        {{"cures" | translate}}
+      </p>
+    </div>
+
+
+    <ion-slides [options]="productSlideOptions" style="direction: ltr;padding: 5px;min-height: 164px !important;" slidesPerView="auto" freeMode="true" >
+
+      <ion-slide *ngFor='let product of products'   class="unset_slide" >
+        <app-product-card [product]="product"></app-product-card>
+      </ion-slide>
+    </ion-slides>
+   
+
+  </div>
+
+
+ 
+  </div>
+
+</ion-content>

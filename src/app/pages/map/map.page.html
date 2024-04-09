@@ -1,0 +1,30 @@
+<ion-content id="map_page">
+  <div #map style="height: 100%; width: 100%" id="map_canvas"></div>
+
+  <ion-button [disabled]="!locationMarker" expand="block" (click)="ok()" style="position: absolute;width: 90%;left: 5%;bottom:2%;--background:rgb(248, 10, 10);" class="next-btn">
+      {{"pick_this_location" | translate}}
+  </ion-button>
+
+ <div class="no-gps" *ngIf="!havePermission">
+    <img src="assets/images/gps.png">
+    <p>{{"app_needs_permissions" | translate}}</p>
+    <ion-button (click)="givePermission()">
+      {{"give_gps_permissions"  | translate}}
+    </ion-button>
+  </div>
+</ion-content>
+
+<ion-fab vertical="start" horizontal="end" slot="fixed" style="margin-top: 15px;z-index:99999">
+  <ion-fab-button (click)="back()">
+    <ion-icon name="ios-arrow-forward"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab vertical="top" horizontal="start" slot="fixed" class="gps-fab">
+    
+    <ion-chip (click)="getLocation()">
+
+      <ion-label>{{"find_my_location" | translate}}</ion-label>
+      <ion-icon name="md-locate"></ion-icon>
+    </ion-chip>
+  </ion-fab>

@@ -1,0 +1,29 @@
+ion-img{
+    width: 90%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: inherit;
+    border-radius: 100px !important;
+    overflow: hidden;
+    margin-bottom: 0px;
+}
+
+.card{
+    position: relative;
+    margin: 16px;
+    border-radius: 5px;
+}
+.pager{
+    width: 30px;
+    height: 30px;
+    background: white;
+    border: 1px solid var(--ion-color-secondary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--ion-color-secondary);
+    position: absolute;
+    left: -10px;
+    top: -10px;
+}

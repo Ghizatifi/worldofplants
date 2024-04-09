@@ -1,0 +1,37 @@
+<app-header2 hide_tail="true" pageName="consults" navHome="true"></app-header2>
+<ion-content padding>
+  <h4 *ngIf="fetch_requested && chatData.length==0">
+    {{"no_consults" | translate}}
+  </h4>
+  <ion-list class="ion-no-padding">
+
+    <div class="bordered" style="    display: flex; flex-direction: row; justify-content: space-around; align-items: center; margin-top: 10px;" *ngFor="let chat of chatData;index as i" (click)="goforChat(chat)">
+      <!-- <ion-icon class="online" name="done-all"  slot="start"></ion-icon> -->
+
+      <ion-avatar slot="end">
+        <ion-img class="user-img" src="assets/images/logo.png"></ion-img>
+      </ion-avatar>
+      <ion-label style="width: 100%;">
+
+        <div class="withcount">
+          <div class="nameAvatar">
+            <h2>{{"consult_number" | translate}}{{chatData.length-i}}
+            </h2>
+            <!-- <ion-avatar class="chatCount" >{{chat.count}}</ion-avatar> -->
+          </div>
+
+          <div class="timeEnd">
+            <!-- <ion-text  slot="end">{{chat.time}}</ion-text> -->
+          </div>
+        </div>
+        <p *ngIf="chat.lastChat" class="widthHalf"  [ngClass]="chat.unseen!=0?'green':'black'">{{chat.lastChat.msg?chat.lastChat.msg:'image'}}</p>
+        <p *ngIf="!chat.lastChat" class="widthHalf">{{"new_consult" | translate}}</p>
+      </ion-label>
+    </div>
+  </ion-list>
+  <ion-fab  vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="create_chat()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

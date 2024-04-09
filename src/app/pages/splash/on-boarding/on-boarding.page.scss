@@ -1,0 +1,30 @@
+.slide_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 50px;
+
+    img{
+        height: 200px;
+    }
+}
+.slide_content img{
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+.footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    position: fixed;
+    bottom: 40;
+    padding: 40px;
+    z-index: 1;
+
+}
+.footer_content{
+    display: flex;
+    justify-content: space-between;
+}
