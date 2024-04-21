@@ -45,7 +45,7 @@ export var AppConstants = {
 
     API_URL  : 'https://app.worldofplants.ai/api/',
     API_URL_STORAGE  : 'https://app.worldofplants.ai/storage/',
-    SHARE_LINK_ANDROID_PLAYSTORE : "https://play.google.com/store/apps/details?id=worldofplants.ai" ,
+    SHARE_LINK_ANDROID_PLAYSTORE : "https://play.google.com/store/apps/details?id=com.slyd4r.worldofplantsi" ,
     SHARE_LINK_IOS: "",
     
     //ploicies: "" ,

@@ -1,9 +1,47 @@
 
 <ion-content>
   <ion-slides class="z-index:0"  #slides  pager="true" >
+    <ion-slide>
+      <div class="slide_content">
+
+        <img style="" src="assets/images/drawable-xxxhdpi-icon.png" alt="">
+
+        <h2> اختيار اللغه</h2>
+        <h2 style="margin-top: 0;">
+          Select the language
+          </h2>
+
+        <ion-radio-group (ionChange)="selectlanguage($event)">
+          <ion-row>
+            <ion-col>
+              <ion-card  >
+                <img style="" src="assets/images/arabic.png" alt="">
+                <ion-item >
+                  <ion-label style="text-align: center;font-weight: bold;color: #2B7A0B;"  class="someclass" >عربي</ion-label>
+                  <ion-radio value="ar"></ion-radio>
+                </ion-item>
+              </ion-card>
+            </ion-col>
+            <ion-col>
+              <ion-card  >
+                <img style="" src="assets/images/english.png" alt="">
+                <ion-item >
+                  <ion-label style="text-align: center;font-weight: bold;color: #2B7A0B;" class="someclass" >English</ion-label>
+                  <ion-radio value="en"></ion-radio>
+                </ion-item>
+              </ion-card>
+            </ion-col>
+            
+          </ion-row>
+        </ion-radio-group>
+
+      
+    
+      </div>
+    </ion-slide>
     <ion-slide *ngFor="let b of boards">
       <div class="slide_content">
-        <img style="" [src]="b.image" alt="">
+        <img class="slide-img" style="" [src]="b.image" alt="">
         <h1>
         {{b.title | translate}}
         </h1>

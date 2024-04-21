@@ -6,7 +6,7 @@
     padding: 20px;
     margin-bottom: 50px;
 
-    img{
+    .slide-img{
         height: 200px;
     }
 }
@@ -28,3 +28,15 @@
     display: flex;
     justify-content: space-between;
 }
+card.active {
+    border: 1px solid #ddd !important;
+    }
+    ion-card {
+        img {
+           
+            display: block;
+            width: 35%;
+            margin: auto;
+            }
+        }
+   

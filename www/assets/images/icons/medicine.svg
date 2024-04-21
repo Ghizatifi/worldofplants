@@ -1,0 +1,45 @@
+<svg id="Group_82164" data-name="Group 82164" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26.715" height="39.024" viewBox="0 0 26.715 39.024">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_35221" data-name="Rectangle 35221" width="26.715" height="39.024" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect id="Rectangle_35212" data-name="Rectangle 35212" width="20.414" height="33.793" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-4">
+      <rect id="Rectangle_35219" data-name="Rectangle 35219" width="2.618" height="9.647" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_82163" data-name="Group 82163" clip-path="url(#clip-path)">
+    <g id="Group_82162" data-name="Group 82162">
+      <g id="Group_82161" data-name="Group 82161" clip-path="url(#clip-path)">
+        <path id="Path_24733" data-name="Path 24733" d="M26.712,48.551,25.95,68.535a3.715,3.715,0,0,1-3.713,3.573H4.794a3.714,3.714,0,0,1-3.709-3.516L.006,48.413a4.283,4.283,0,0,1,2.176-3.961L6.3,42.136l.2-3.821H19.578l.2,4.022,4.526,2.2a4.285,4.285,0,0,1,2.407,4.016" transform="translate(0 -33.084)" fill="#519133"/>
+        <path id="Path_24734" data-name="Path 24734" d="M31.428,2.263l.18,2.967H47.769l.306-2.844A1.988,1.988,0,0,0,46.435,0H33.078a1.959,1.959,0,0,0-1.651,2.263" transform="translate(-27.133)" fill="#e6e6e5"/>
+        <path id="Path_24735" data-name="Path 24735" d="M12.269,133.207l.8,10.862,22.227.905.7-12.371Z" transform="translate(-10.594 -114.5)" fill="#e6e6c3"/>
+        <g id="Group_82157" data-name="Group 82157" transform="translate(6.301 5.231)" style="mix-blend-mode: multiply;isolation: isolate">
+          <g id="Group_82156" data-name="Group 82156">
+            <g id="Group_82155" data-name="Group 82155" clip-path="url(#clip-path-3)">
+              <path id="Path_24736" data-name="Path 24736" d="M66.563,48.551,65.8,68.535a3.715,3.715,0,0,1-3.713,3.573H57.416C62.748,70.9,60.323,48.156,59.5,45.153c-1.274-4.627-13.344-3.017-13.344-3.017l.2-3.821H59.429l.2,4.022,4.526,2.2a4.285,4.285,0,0,1,2.407,4.016" transform="translate(-46.152 -38.315)" fill="#dbdbdb"/>
+            </g>
+          </g>
+        </g>
+        <rect id="Rectangle_35213" data-name="Rectangle 35213" width="1.073" height="2.799" transform="translate(5.531 1.844)" fill="#c7c7c5"/>
+        <rect id="Rectangle_35214" data-name="Rectangle 35214" width="1.073" height="2.799" transform="translate(8.045 1.844)" fill="#c7c7c5"/>
+        <rect id="Rectangle_35215" data-name="Rectangle 35215" width="1.073" height="2.799" transform="translate(11.146 1.844)" fill="#c7c7c5"/>
+        <rect id="Rectangle_35216" data-name="Rectangle 35216" width="1.073" height="2.799" transform="translate(14.381 1.844)" fill="#c7c7c5"/>
+        <rect id="Rectangle_35217" data-name="Rectangle 35217" width="1.073" height="2.799" transform="translate(16.778 1.844)" fill="#c7c7c5"/>
+        <rect id="Rectangle_35218" data-name="Rectangle 35218" width="1.073" height="2.799" transform="translate(19.108 1.844)" fill="#c7c7c5"/>
+        <g id="Group_82160" data-name="Group 82160" transform="translate(4.875 12.497)" opacity="0.62">
+          <g id="Group_82159" data-name="Group 82159">
+            <g id="Group_82158" data-name="Group 82158" clip-path="url(#clip-path-4)">
+              <path id="Path_24737" data-name="Path 24737" d="M36.9,91.563c-1.635.443-1.542,9.1,0,9.606s2.229-10.209,0-9.606" transform="translate(-35.709 -91.538)" fill="#fafafa"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g id="Group_82149" data-name="Group 82149" transform="translate(8.956 19.057)">
+        <path id="Path_24730" data-name="Path 24730" d="M244.413,374.12c.092,3.632-1.771,6.7-4.726,7.543a5.091,5.091,0,0,1-1.6.19,1.839,1.839,0,0,0-1.8.927c-.317.45-1.2.5-1.844.719l-.314-.367c1.133-2.367,3.27-3.673,5.293-5.194-1.474.669-2.951,1.335-4.44,2.009a6.354,6.354,0,0,1,.713-2.277,5.022,5.022,0,0,1,3.617-2.428l.345-.071C241.256,374.839,242.847,374.467,244.413,374.12Z" transform="translate(-234.13 -374.12)" fill="#ffa400"/>
+      </g>
+    </g>
+  </g>
+</svg>

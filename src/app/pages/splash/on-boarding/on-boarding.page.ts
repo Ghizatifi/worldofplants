@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides, NavController } from '@ionic/angular';
+import { ConfigService } from 'src/app/services/config.service';
 
 @Component({
   selector: 'app-on-boarding',
@@ -11,7 +12,8 @@ export class OnBoardingPage implements OnInit {
   
   @ViewChild("slides", { static: false }) slides: IonSlides;
   constructor(
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    public config: ConfigService
   ) { }
 
   boards =[
@@ -53,6 +55,14 @@ export class OnBoardingPage implements OnInit {
     this.slides.slidePrev()
   }
   skip(){
-    this.navCtrl.navigateRoot('login')
+   this.navCtrl.navigateRoot('login')
+  }
+  selectlanguage(e){
+    console.log(e.detail.value);
+    this.config.setLanguage(e.detail.value) , 
+    localStorage.setItem("lang" , e.detail.value)
+    var lang = localStorage.getItem('lang')?localStorage.getItem('lang') : 'en'
+    this.config.lang = this.config.translate.getBrowserLang();
+    this.config.setLanguage(lang)
   }
 }

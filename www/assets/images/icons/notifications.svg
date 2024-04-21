@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19.927" height="25.282" viewBox="0 0 19.927 25.282">
+  <g id="Group_3" data-name="Group 3" transform="translate(0.766 1.5)">
+    <g id="_19903299871596026813_2_" data-name="19903299871596026813 (2)" transform="translate(0 3.097)">
+      <path id="Path_61" data-name="Path 61" d="M4.154,18.488,5,17.185A12.942,12.942,0,0,0,7.221,9.9,6.027,6.027,0,0,1,11.515,4.15a1.812,1.812,0,0,1,3.374,0A6.027,6.027,0,0,1,19.182,9.9a12.942,12.942,0,0,0,2.224,7.284l.843,1.3a.882.882,0,0,1-.767,1.38H4.921A.882.882,0,0,1,4.154,18.488Z" transform="translate(-4.004 -3)" fill="none" stroke="#272727" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path_62" data-name="Path 62" d="M12,25a3.067,3.067,0,1,0,6.134,0" transform="translate(-5.869 -8.132)" fill="none" stroke="#272727" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    </g>
+    <g id="Ellipse_6" data-name="Ellipse 6" transform="translate(2.396)" fill="#ff2725" stroke="#fff" stroke-width="1.5">
+      <ellipse cx="4" cy="4" rx="4" ry="4" stroke="none"/>
+      <ellipse cx="4" cy="4" rx="4.75" ry="4.75" fill="none"/>
+    </g>
+  </g>
+</svg>
